@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio | 攝影作品集</title>
+    <meta name="description" content="個人精選攝影作品集，捕捉生活與風景的每個瞬間。">
+    
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- 引入樣式 -->
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <!-- 導覽列 -->
+    <nav class="navbar">
+        <div class="logo">Eric's <span>Portfolio</span></div>
+        <ul class="nav-links">
+            <li><a href="#gallery">作品集Gallery</a></li>
+            <li><a href="#about">關於About</a></li>
+        </ul>
+    </nav>
+
+    <!-- 標題區 -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Capturing the <span>Moments</span></h1>
+            <p>透過鏡頭探索世界的光影與故事，歡迎來到我的攝影集。</p>
+            <a href="#gallery" class="scroll-down">
+                探索作品 ▼
+            </a>
+        </div>
+        <div class="hero-background"></div>
+    </header>
+
+    <!-- 照片畫廊 (Masonry Layout) -->
+    <main id="gallery" class="gallery-section">
+        <div class="masonry-grid" id="masonry-grid">
+            <!-- 影片作品 (Videos) -->
+            <div class="masonry-item video-item" data-type="video" data-src="./assets/videos/Timeline 1.mov">
+                <video muted loop playsinline>
+                    <source src="./assets/videos/Timeline 1.mov" type="video/quicktime">
+                    您的瀏覽器不支援播放此影片。
+                </video>
+                <div class="video-overlay">▶ 播放影片</div>
+            </div>
+
+            <!-- 天文與深空攝影 (Astronomy & Deep Sky) -->
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/Stacked_14_M%2042_10.0s_LP_20251213-225129.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/Stacked_20_NGC%201432_10.0s_IRCUT_20251213-195538.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/Stacked_2_M%2045_10.0s_IRCUT_20251213-230337.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5151.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5251.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5319.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5499.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5511.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5516.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5536.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/astronomy/IMG_5562.webp" alt="Photo" loading="lazy"></div>
+
+            <!-- 其他攝影作品 (Other Photos) -->
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/CB1C3477-6445-42C2-AD82-DF6429D5D645.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/DSC00415.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/DSC00434.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/DSC00439.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/DSC_1981.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_0731.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_0741.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_0743.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_0748.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_0749.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_0760.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_0761.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_1054.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_1076.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_1188.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_1190.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_1192.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_1611.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_3282.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_3505.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_3718.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_3719.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_3977.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4137.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4144.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4149.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4156.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4157.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4158.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4273.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4543.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4551.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4557.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4558.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_4837.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5152 2.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5320.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5321.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5336.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5338.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5358.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5365.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5366.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5367.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_5436.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/IMG_9095.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/classicu%202025-11-21%20152520.542.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/classicu%202026-02-05%20131542C5932418DE27.webp" alt="Photo" loading="lazy"></div>
+            <div class="masonry-item" data-type="image"><img src="./assets/images/others/classicu%202026-02-28%201842318E8D235C4728.webp" alt="Photo" loading="lazy"></div>
+        </div>
+    </main>
+
+    <!-- 關於我 -->
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <p>熱愛透過鏡頭記錄世界，保留每一個稍縱即逝的美好瞬間。</p>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <p>&copy; 2026 Eric Yang. Built with ❤️ for Photography.</p>
+    </footer>
+
+    <!-- Lightbox 燈箱元件 -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged Photo">
+            <video class="lightbox-video" id="lightbox-video" controls autoplay loop></video>
+        </div>
+        <div class="lightbox-caption"></div>
+    </div>
+
+    <!-- 引入指令碼 -->
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

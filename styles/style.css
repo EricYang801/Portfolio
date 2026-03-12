@@ -1,0 +1,419 @@
+/* 
+=====================================
+  全局變數與重置 (Variables & Reset)
+=====================================
+*/
+:root {
+    /* 顏色定義 */
+    --clr-bg: #0a0a0a;           /* 深色背景 */
+    --clr-surface: #1e1e1e;      /* 浮動層/卡片背景 */
+    --clr-text-main: #f5f5f7;    /* 主要文字 (蘋果風亮白) */
+    --clr-text-muted: #86868b;   /* 次要文字 */
+    --clr-accent: #3498db;       /* 點綴色 (雖然以黑白為主，但保留彈性) */
+    --clr-glass: rgba(25, 25, 25, 0.6); /* 玻璃擬態背景 */
+    --clr-glass-border: rgba(255, 255, 255, 0.08);
+    
+    /* 字體 */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Noto Sans TC', sans-serif;
+
+    /* 動畫過場 */
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--clr-bg);
+    color: var(--clr-text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 
+=====================================
+  導航列 (Navbar)
+=====================================
+*/
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--clr-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--clr-glass-border);
+    z-index: 1000;
+    transition: var(--transition-fast);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.logo span {
+    color: var(--clr-text-muted);
+    font-weight: 300;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--clr-text-main);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--clr-text-main);
+    transition: var(--transition-fast);
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 
+=====================================
+  英雄區/首圖區 (Hero Section)
+=====================================
+*/
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 0 5%;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0) 0%, var(--clr-bg) 90%),
+        url('../assets/images/DSC_1981.webp') center/cover no-repeat; /* 取一張照片當背景 */
+    opacity: 0.3;
+    z-index: -1;
+    filter: saturate(0.5) blur(2px);
+    transform: scale(1.05); /* 稍微放大避免 blur 邊緣漏白 */
+}
+
+.hero-content {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    font-weight: 600;
+    background: linear-gradient(135deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: var(--clr-text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+
+.scroll-down {
+    display: inline-block;
+    color: var(--clr-text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+    opacity: 0.7;
+    transition: var(--transition-fast);
+}
+
+.scroll-down:hover {
+    opacity: 1;
+}
+
+/* 
+=====================================
+  畫廊/瀑布流 (Masonry Gallery)
+=====================================
+*/
+.gallery-section {
+    padding: 5rem 2%;
+    min-height: 100vh;
+}
+
+/* CSS Column 實現的簡單瀑布流 */
+.masonry-grid {
+    column-count: 3;
+    column-gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--clr-surface);
+    /* 載入前的佔位效果 */
+    min-height: 200px; 
+}
+
+/* 圖片本身的細節 */
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform var(--transition-slow), filter var(--transition-slow);
+    filter: brightness(0.9) grayscale(20%);
+}
+
+.masonry-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.masonry-item:hover img {
+    transform: scale(1.03);
+    filter: brightness(1.1) grayscale(0%);
+}
+
+.masonry-item:hover::after {
+    opacity: 1;
+}
+
+/* 影片項目的特殊處理 */
+.video-item {
+    position: relative;
+}
+
+.video-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    filter: brightness(0.7);
+    transition: filter var(--transition-fast);
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+}
+
+.video-item:hover video {
+    filter: brightness(0.9);
+}
+
+.video-item:hover .video-overlay {
+    opacity: 0;
+}
+
+/* 響應式調整 */
+@media (max-width: 1024px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* 
+=====================================
+  關於與頁尾 (About & Footer)
+=====================================
+*/
+.about-section {
+    text-align: center;
+    padding: 6rem 5%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.about-section p {
+    color: var(--clr-text-muted);
+    font-size: 1.1rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--clr-glass-border);
+    color: var(--clr-text-muted);
+    font-size: 0.85rem;
+    margin-top: 4rem;
+}
+
+/* 
+=====================================
+  燈箱 (Lightbox)
+=====================================
+*/
+.lightbox {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img, .lightbox-video {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    transition: transform var(--transition-slow);
+    display: none; /* 預設隱藏，由 JS 控制顯示 */
+}
+
+.lightbox.active .lightbox-img,
+.lightbox.active .lightbox-video {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: var(--clr-text-muted);
+}
+
+/* 
+=====================================
+  動畫 (Keyframes)
+=====================================
+*/
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
